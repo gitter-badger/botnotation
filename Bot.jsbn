@@ -1,0 +1,13 @@
+{
+      "title":"My BOt",
+      "author":"Shani Shlapobersky",
+      "version":1.0,
+      "settings": {
+          "case-sensitive": false
+      },
+      "responses": [
+          {"input":"Hello", "response":"Hi @{name}!"},
+          {"input":"foo", "response":"bar"},
+          {"default":"I didn't get that. Try writing hello to me."}
+      ]
+}
