@@ -48,6 +48,7 @@ function bot(name) {
 }
 ////
 }
+////
 this.send = function(input) {
           for(var index = 0; index <= this.JSBN['responses'].length; index++) {
             if (index === this.JSBN['responses'].length) {
@@ -80,6 +81,7 @@ this.send = function(input) {
             }
           }
         }
+////
 }
 ////
 var CrossBrowserAjaxObjects = [
