@@ -77,6 +77,8 @@ function bot(name) {
     }
   });
 }
+////
+}
 var CrossBrowserAjaxObjects = [
     function () {return new XMLHttpRequest()},
     function () {return new ActiveXObject("Msxml2.XMLHTTP")},
@@ -106,9 +108,10 @@ function sendAJAXRequest(URL, callback) {
   xhttp.open("GET", URL, true);
   xhttp.send();
 };
-var JSBN = {};
-JSBN.eval = function(string) {
-    return string.replace(new RegExp('@{(.+?)}', 'g'), function () {
-      return eval(arguments[1]);
-    });
-  };
+var JSBN = {
+  eval: function(string) {
+      return string.replace(new RegExp('@{(.+?)}', 'g'), function () {
+        return eval(arguments[1]);
+      });
+  }
+};
