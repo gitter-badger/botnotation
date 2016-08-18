@@ -11,24 +11,50 @@ function bot(name) {
     } else {
     sendAJAXRequest(src, function (request) {
       if (JSON.parse) {
-        var JSBNC = JSON.parse(request.responseText);
+        this.JSBN = JSON.parse(request.responseText);
       } else {
-        var JSBNC = eval ("(" + request.responseText + ")");
+        this.JSBN = eval ("(" + request.responseText + ")");
       }
-      if (JSBNC['title'] !== this.name) {
+      if (this.JSBN['title'] !== this.name) {
         throw new Error("Bot name must be identical to the property 'title' in your bot's JSBN file.");
       } else {
         this.ready = true;
-        var details = "Bot " + JSBNC['title'] + "is built";
-        if (JSBNC['version']) {
-          details += " and running version " + JSBNC['version'].toString();
+        var details = "Bot " + this.JSBN['title'] + "is built";
+        if (this.JSBN['version']) {
+          details += " and running version " + this.JSBN['version'].toString();
         }
         if (JSBNC['author']) {
-          details += ".\n\n\nBot by " + JSBNC['author'];
+          details += ".\n\n\nBot by " + this.JSBN['author'];
         }
         details += ".";
         this.send = function(input) {
-          //Define Send function
+          for(var index = 0; index < this.JSBN['responses'].length; index++) {
+            if (this.JSBN['settings']['evaluate-inner-expressions'].toString() === "true") {
+              if (this.JSBN['settings']['case-sensitive'].toString() === "true") {
+                if (this.JSBN['responses'][index]['input'] === input) {
+                  return JSBN.eval(this.JSBN['responses'][index]['response']);
+                  break;
+                }
+              } else {
+                if (this.JSBN['responses'][index]['input'].toUpperCase() === input.toUpperCase()) {
+                  return JSBN.eval(this.JSBN['responses'][index]['response']);
+                  break;
+                }
+              }
+            } else {
+              if (this.JSBN['settings']['case-sensitive'].toString() === "true") {
+                if (this.JSBN['responses'][index]['input'] === input) {
+                  return this.JSBN['responses'][index]['response'];
+                  break;
+                }
+              } else {
+                if (this.JSBN['responses'][index]['input'].toUpperCase() === input.toUpperCase()) {
+                  return this.JSBN['responses'][index]['response'];
+                  break;
+                }
+              }
+            }
+          }
         }
     });
   }
