@@ -42,7 +42,13 @@ function bot(name) {
             }
           }
         })();
-        this.send = function(input) {
+        
+    }
+  });
+}
+////
+}
+this.send = function(input) {
           for(var index = 0; index <= this.JSBN['responses'].length; index++) {
             if (index === this.JSBN['responses'].length) {
               return this.default;
@@ -74,12 +80,8 @@ function bot(name) {
             }
           }
         }
-    }
-  });
 }
 ////
-}
-}
 var CrossBrowserAjaxObjects = [
     function () {return new XMLHttpRequest()},
     function () {return new ActiveXObject("Msxml2.XMLHTTP")},
