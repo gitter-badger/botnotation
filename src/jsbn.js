@@ -74,8 +74,8 @@ function bot(name) {
             }
           }
         }
-    };
-  }
+    }
+  });
 }
 var CrossBrowserAjaxObjects = [
     function () {return new XMLHttpRequest()},
