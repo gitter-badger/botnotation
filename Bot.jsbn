@@ -3,7 +3,8 @@
       "author":"Shani Shlapobersky",
       "version":1.0,
       "settings": {
-          "case-sensitive": false
+          "case-sensitive": false,
+          "voice-recognition": true
       },
       "responses": [
           {"input":"Hello", "response":"Hi @{name}!"},
