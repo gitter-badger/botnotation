@@ -106,10 +106,9 @@ function sendAJAXRequest(URL, callback) {
   xhttp.open("GET", URL, true);
   xhttp.send();
 };
-var JSBN = {
-  eval: function(string) {
+var JSBN = {};
+JSBN.eval = function(string) {
     return string.replace(new RegExp('@{(.+?)}', 'i'), function () {
       return eval(arguments[1]);
     });
-  }
-};
+  };
