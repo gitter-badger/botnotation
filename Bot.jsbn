@@ -4,7 +4,8 @@
       "version":1.0,
       "settings": {
           "case-sensitive": false,
-          "voice-recognition": true
+          "voice-recognition": true,
+          "evaluate-inner-expressions": true
       },
       "responses": [
           {"input":"Hello", "response":"Hi @{name}!"},
