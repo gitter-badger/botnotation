@@ -108,7 +108,7 @@ function sendAJAXRequest(URL, callback) {
 };
 var JSBN = {};
 JSBN.eval = function(string) {
-    return string.replace(new RegExp('@{(.+?)}', 'i'), function () {
+    return string.replace(new RegExp('@{(.+?)}', 'g'), function () {
       return eval(arguments[1]);
     });
   };
