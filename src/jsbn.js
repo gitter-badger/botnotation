@@ -27,9 +27,27 @@ function bot(name) {
           details += ".\n\n\nBot by " + this.JSBN['author'];
         }
         details += ".";
-        this.send = function(input) {
+        this.default = (function () {
           for(var index = 0; index < this.JSBN['responses'].length; index++) {
             if (this.JSBN['settings']['evaluate-inner-expressions'].toString() === "true") {
+              if (this.JSBN['responses'][index]['default']) {
+                return JSBN.eval(this.JSBN['responses'][index]['default']);
+                break;
+              }
+            } else {
+              if (this.JSBN['responses'][index]['default']) {
+                return this.JSBN['responses'][index]['default'];
+                break;
+              }
+            }
+          }
+        })();
+        this.send = function(input) {
+          for(var index = 0; index <= this.JSBN['responses'].length; index++) {
+            if (index === this.JSBN['responses'].length) {
+              return this.default;
+              break;
+            } else if (this.JSBN['settings']['evaluate-inner-expressions'].toString() === "true") {
               if (this.JSBN['settings']['case-sensitive'].toString() === "true") {
                 if (this.JSBN['responses'][index]['input'] === input) {
                   return JSBN.eval(this.JSBN['responses'][index]['response']);
