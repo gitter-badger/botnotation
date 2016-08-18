@@ -74,7 +74,7 @@ function bot(name) {
             }
           }
         }
-    });
+    };
   }
 }
 var CrossBrowserAjaxObjects = [
