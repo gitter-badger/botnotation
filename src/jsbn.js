@@ -46,9 +46,11 @@ function bot(name) {
     }
   });
 }
-////
 }
-////
+/*
+* @param input a string to send to the bot.
+* @return the bot's response.
+*/
 this.send = function(input) {
           for(var index = 0; index <= this.JSBN['responses'].length; index++) {
             if (index === this.JSBN['responses'].length) {
@@ -81,9 +83,8 @@ this.send = function(input) {
             }
           }
         }
-////
 }
-////
+//AJAX Functions
 var CrossBrowserAjaxObjects = [
     function () {return new XMLHttpRequest()},
     function () {return new ActiveXObject("Msxml2.XMLHTTP")},
@@ -103,6 +104,11 @@ function RequestObject() {
     }
     return xmlhttp;
 };
+/*
+* @param URL a URL to send a request to.
+* @param callback a function that would be executed once the request was made.
+* @return void
+*/
 function sendAJAXRequest(URL, callback) {
   var xhttp = RequestObject();
   xhttp.onreadystatechange = function() {
@@ -113,7 +119,12 @@ function sendAJAXRequest(URL, callback) {
   xhttp.open("GET", URL, true);
   xhttp.send();
 };
+//JSBN Functions
 var JSBN = {
+  /*
+  * @param string a string to be analysed.
+  * @return the input with all @{x} strings replaced with variable x of the window scope.
+  */
   eval: function(string) {
       return string.replace(new RegExp('@{(.+?)}', 'g'), function () {
         return eval(arguments[1]);
