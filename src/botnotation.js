@@ -27,7 +27,7 @@ function bot(name) {
       this.default = (function () {
         for(var index = 0; index < this.BN['responses'].length; index++) {
             if (this.BN['responses'][index]['default']) {
-              return BN.eval(this.BN['responses'][index]['default']);
+              return botnotation.eval(this.BN['responses'][index]['default']);
               break;
             }
             if (this.BN['responses'][index]['default']) {
@@ -51,12 +51,12 @@ this.send = function(input) {
     } else if (this.BN['settings']['evaluate-inner-expressions'].toString() === "true") {
       if (this.BN['settings']['case-sensitive'].toString() === "true") {
         if (this.BN['responses'][index]['input'] === input) {
-          return BN.eval(this.BN['responses'][index]['response']);
+          return botnotation.eval(this.BN['responses'][index]['response']);
           break;
         }
       } else {
         if (this.BN['responses'][index]['input'].toUpperCase() === input.toUpperCase()) {
-          return BN.eval(this.BN['responses'][index]['response']);
+          return botnotation.eval(this.BN['responses'][index]['response']);
           break;
         }
       }
