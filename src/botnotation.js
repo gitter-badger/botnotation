@@ -79,6 +79,7 @@ this.send = function(input) {
   }
 }
 }
+}
 //AJAX Functions
 var CrossBrowserAjaxObjects = [
     function () {return new XMLHttpRequest()},
