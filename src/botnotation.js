@@ -4,6 +4,7 @@ function bot(name) {
     return new bot(name);
   } else {
     this.name = name;
+    botnotation.bots.push(this);
     this.loadSource = function (src) {
       if (src.substring(src.length - 12, src.length) !== ".botnotation" && src.substring(src.length - 3, src.length) !== ".bn") {
       throw new Error("Bot Source must be a botnotation file.");
