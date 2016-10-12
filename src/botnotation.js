@@ -26,17 +26,14 @@ function bot(name) {
       details += ".";
       this.default = (function () {
         for(var index = 0; index < this.BN['responses'].length; index++) {
-          if (this.BN['settings']['evaluate-inner-expressions'].toString() === "true") {
             if (this.BN['responses'][index]['default']) {
               return BN.eval(this.BN['responses'][index]['default']);
               break;
             }
-          } else {
             if (this.NB['responses'][index]['default']) {
               return this.BN['responses'][index]['default'];
               break;
             }
-          }
         }
       })();
   });
