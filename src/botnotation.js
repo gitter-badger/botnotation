@@ -47,37 +47,37 @@ function bot(name) {
 * @return the bot's response.
 */
 this.send = function(input) {
-          for(var index = 0; index <= this.BN['responses'].length; index++) {
-            if (index === this.BN['responses'].length) {
-              return this.default;
-              break;
-            } else if (this.BN['settings']['evaluate-inner-expressions'].toString() === "true") {
-              if (this.BN['settings']['case-sensitive'].toString() === "true") {
-                if (this.BN['responses'][index]['input'] === input) {
-                  return BN.eval(this.BN['responses'][index]['response']);
-                  break;
-                }
-              } else {
-                if (this.BN['responses'][index]['input'].toUpperCase() === input.toUpperCase()) {
-                  return BN.eval(this.BN['responses'][index]['response']);
-                  break;
-                }
-              }
-            } else {
-              if (this.BN['settings']['case-sensitive'].toString() === "true") {
-                if (this.BN['responses'][index]['input'] === input) {
-                  return this.BN['responses'][index]['response'];
-                  break;
-                }
-              } else {
-                if (this.BN['responses'][index]['input'].toUpperCase() === input.toUpperCase()) {
-                  return this.BN['responses'][index]['response'];
-                  break;
-                }
-              }
-            }
-          }
+  for(var index = 0; index <= this.BN['responses'].length; index++) {
+    if (index === this.BN['responses'].length) {
+      return this.default;
+      break;
+    } else if (this.BN['settings']['evaluate-inner-expressions'].toString() === "true") {
+      if (this.BN['settings']['case-sensitive'].toString() === "true") {
+        if (this.BN['responses'][index]['input'] === input) {
+          return BN.eval(this.BN['responses'][index]['response']);
+          break;
         }
+      } else {
+        if (this.BN['responses'][index]['input'].toUpperCase() === input.toUpperCase()) {
+          return BN.eval(this.BN['responses'][index]['response']);
+          break;
+        }
+      }
+    } else {
+      if (this.BN['settings']['case-sensitive'].toString() === "true") {
+        if (this.BN['responses'][index]['input'] === input) {
+          return this.BN['responses'][index]['response'];
+          break;
+        }
+      } else {
+        if (this.BN['responses'][index]['input'].toUpperCase() === input.toUpperCase()) {
+          return this.BN['responses'][index]['response'];
+          break;
+        }
+      }
+    }
+  }
+}
 }
 //AJAX Functions
 var CrossBrowserAjaxObjects = [
