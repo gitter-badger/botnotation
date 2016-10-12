@@ -1,4 +1,4 @@
-/* - JSBN JS Handler - v1.0 - Beta - By Shani Shlapobersky - Licensed under the MIT license - */
+/* - botnotation JS Library - v1.0 - Beta - By Shani Shlapobersky - Licensed under the MIT license - */
 var bots = [];
 function bot(name) {
   if (this === window) {
