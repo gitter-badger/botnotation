@@ -1,5 +1,5 @@
 {
-      "title":"My BOt",
+      "title":"My Bot",
       "author":"Shani Shlapobersky",
       "version":1.0,
       "settings": {
@@ -8,6 +8,9 @@
       "responses": [
           {"input":"Hello", "response":"Hi @{name}!"},
           {"input":"foo", "response":"bar"},
+          {"input":"get me a function", "response":"@{my_function}", "evaluate":true},
+          {"input":"get me a number", "response":"42", "evaluate":true},
+          {"input":"get me an array", "response":"@{my_array}", "evaluate":true},
           {"default":"I didn't get that. Try writing hello to me."}
       ]
 }
