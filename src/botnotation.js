@@ -30,7 +30,7 @@ function bot(name) {
               return BN.eval(this.BN['responses'][index]['default']);
               break;
             }
-            if (this.NB['responses'][index]['default']) {
+            if (this.BN['responses'][index]['default']) {
               return this.BN['responses'][index]['default'];
               break;
             }
