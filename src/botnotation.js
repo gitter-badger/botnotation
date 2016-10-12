@@ -6,7 +6,7 @@ function bot(name) {
   } else {
     this.name = name;
     this.loadSource = function (src) {
-      if (src.substring(src.length - 5, src.length) !== ".jsbn") {
+      if (src.substring(src.length - 5, src.length) !== ".botnotation" && src.substring(src.length - 5, src.length) !== ".bn") {
       throw new Error("Bot Source must be a JSBN file.");
     } else {
     sendAJAXRequest(src, function (request) {
