@@ -16,14 +16,15 @@ function bot(name) {
         this.BN = eval ("(" + request.responseText + ")");
       }
       this.ready = true;
-      var details = "Bot " + this.BN['title'] + "is built";
+      this.details = "Bot " + this.BN['title'] + "is built";
       if (this.BN['version']) {
-        details += " and running version " + this.BN['version'].toString();
+        this.details += " and running version " + this.BN['version'].toString();
       }
       if (this.BN['author']) {
-        details += ".\n\n\nBot by " + this.BN['author'];
+        this.details += ".\n\n\nBot by " + this.BN['author'];
       }
-      details += ".";
+      this.details += ".";
+      console.log(this.details);
       this.default = (function () {
         for(var index = 0; index < this.BN['responses'].length; index++) {
             if (this.BN['responses'][index]['default']) {
