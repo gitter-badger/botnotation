@@ -16,12 +16,12 @@ function bot(name) {
         this.BN = eval ("(" + request.responseText + ")");
       }
       this.ready = true;
-      this.details = "Bot " + this.BN['title'] + "is built";
+      this.details = "Bot " + this.BN['title'] + " is built";
       if (this.BN['version']) {
         this.details += " and running version " + this.BN['version'].toString();
       }
       if (this.BN['author']) {
-        this.details += ".\n\n\nBot by " + this.BN['author'];
+        this.details += ".\n\n\nThis Bot by " + this.BN['author'];
       }
       this.details += ".";
       console.log(this.details);
