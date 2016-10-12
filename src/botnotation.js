@@ -1,5 +1,4 @@
 /* - botnotation JS Library - v1.0 - Beta - By Shani Shlapobersky - Licensed under the MIT license - */
-var bots = [];
 function bot(name) {
   if (this === window) {
     return new bot(name);
@@ -123,5 +122,6 @@ var botnotation = {
       return string.replace(new RegExp('@{(.+?)}', 'g'), function () {
         return eval(arguments[1]);
       });
-  }
+  },
+  bots: []
 };
