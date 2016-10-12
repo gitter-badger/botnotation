@@ -7,43 +7,38 @@ function bot(name) {
     this.name = name;
     this.loadSource = function (src) {
       if (src.substring(src.length - 5, src.length) !== ".botnotation" && src.substring(src.length - 5, src.length) !== ".bn") {
-      throw new Error("Bot Source must be a JSBN file.");
+      throw new Error("Bot Source must be a botnotation file.");
     } else {
     sendAJAXRequest(src, function (request) {
       if (JSON.parse) {
-        this.JSBN = JSON.parse(request.responseText);
+        this.BN = JSON.parse(request.responseText);
       } else {
-        this.JSBN = eval ("(" + request.responseText + ")");
+        this.BN = eval ("(" + request.responseText + ")");
       }
-      if (this.JSBN['title'] !== this.name) {
-        throw new Error("Bot name must be identical to the property 'title' in your bot's JSBN file.");
-      } else {
-        this.ready = true;
-        var details = "Bot " + this.JSBN['title'] + "is built";
-        if (this.JSBN['version']) {
-          details += " and running version " + this.JSBN['version'].toString();
-        }
-        if (JSBNC['author']) {
-          details += ".\n\n\nBot by " + this.JSBN['author'];
-        }
-        details += ".";
-        this.default = (function () {
-          for(var index = 0; index < this.JSBN['responses'].length; index++) {
-            if (this.JSBN['settings']['evaluate-inner-expressions'].toString() === "true") {
-              if (this.JSBN['responses'][index]['default']) {
-                return JSBN.eval(this.JSBN['responses'][index]['default']);
-                break;
-              }
-            } else {
-              if (this.JSBN['responses'][index]['default']) {
-                return this.JSBN['responses'][index]['default'];
-                break;
-              }
+      this.ready = true;
+      var details = "Bot " + this.BN['title'] + "is built";
+      if (this.BN['version']) {
+        details += " and running version " + this.BN['version'].toString();
+      }
+      if (this.BN['author']) {
+        details += ".\n\n\nBot by " + this.BN['author'];
+      }
+      details += ".";
+      this.default = (function () {
+        for(var index = 0; index < this.BN['responses'].length; index++) {
+          if (this.BN['settings']['evaluate-inner-expressions'].toString() === "true") {
+            if (this.BN['responses'][index]['default']) {
+              return BN.eval(this.BN['responses'][index]['default']);
+              break;
+            }
+          } else {
+            if (this.NB['responses'][index]['default']) {
+              return this.BN['responses'][index]['default'];
+              break;
             }
           }
-        })();
-        
-    }
+        }
+      })();
   });
 }
 }
@@ -52,31 +47,31 @@ function bot(name) {
 * @return the bot's response.
 */
 this.send = function(input) {
-          for(var index = 0; index <= this.JSBN['responses'].length; index++) {
-            if (index === this.JSBN['responses'].length) {
+          for(var index = 0; index <= this.BN['responses'].length; index++) {
+            if (index === this.BN['responses'].length) {
               return this.default;
               break;
-            } else if (this.JSBN['settings']['evaluate-inner-expressions'].toString() === "true") {
-              if (this.JSBN['settings']['case-sensitive'].toString() === "true") {
-                if (this.JSBN['responses'][index]['input'] === input) {
-                  return JSBN.eval(this.JSBN['responses'][index]['response']);
+            } else if (this.BN['settings']['evaluate-inner-expressions'].toString() === "true") {
+              if (this.BN['settings']['case-sensitive'].toString() === "true") {
+                if (this.BN['responses'][index]['input'] === input) {
+                  return BN.eval(this.BN['responses'][index]['response']);
                   break;
                 }
               } else {
-                if (this.JSBN['responses'][index]['input'].toUpperCase() === input.toUpperCase()) {
-                  return JSBN.eval(this.JSBN['responses'][index]['response']);
+                if (this.BN['responses'][index]['input'].toUpperCase() === input.toUpperCase()) {
+                  return BN.eval(this.BN['responses'][index]['response']);
                   break;
                 }
               }
             } else {
-              if (this.JSBN['settings']['case-sensitive'].toString() === "true") {
-                if (this.JSBN['responses'][index]['input'] === input) {
-                  return this.JSBN['responses'][index]['response'];
+              if (this.BN['settings']['case-sensitive'].toString() === "true") {
+                if (this.BN['responses'][index]['input'] === input) {
+                  return this.BN['responses'][index]['response'];
                   break;
                 }
               } else {
-                if (this.JSBN['responses'][index]['input'].toUpperCase() === input.toUpperCase()) {
-                  return this.JSBN['responses'][index]['response'];
+                if (this.BN['responses'][index]['input'].toUpperCase() === input.toUpperCase()) {
+                  return this.BN['responses'][index]['response'];
                   break;
                 }
               }
@@ -119,8 +114,8 @@ function sendAJAXRequest(URL, callback) {
   xhttp.open("GET", URL, true);
   xhttp.send();
 };
-//JSBN Functions
-var JSBN = {
+//botnotation Functions
+var botnotation = {
   /*
   * @param string a string to be analysed.
   * @return the input with all @{x} strings replaced with variable x of the window scope.
