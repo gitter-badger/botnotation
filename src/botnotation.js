@@ -21,7 +21,7 @@ function bot(name) {
         this.details += " and running version " + this.BN['version'].toString();
       }
       if (this.BN['author']) {
-        this.details += ".\n\n\nThis Bot was made by " + this.BN['author'];
+        this.details += ".\nThis Bot was made by " + this.BN['author'];
       }
       this.details += ".";
       console.log(this.details);
