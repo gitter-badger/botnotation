@@ -1,4 +1,10 @@
-/* - botnotation JS Library - v1.0 - Beta - By Shani Shlapobersky - Licensed under the MIT license - */
+/* - botnotation JS Library - v1 - Beta - By Shani Shlapobersky - Licensed under the MIT license - */
+var botnotation = {
+  about: {
+    version: '1.0.1'
+  }
+};
+console.log(botnotation.about.version);
 function bot(name) {
   if (this === window) {
     return new bot(name);
