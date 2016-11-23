@@ -1,7 +1,7 @@
 /* - botnotation JS Library - v1 - Beta - By Shani Shlapobersky - Licensed under the MIT license - */
 var botnotation = {
   about: {
-    version: '1.0.1'
+    version: '1.0.2'
   }
 };
 console.log(botnotation.about.version);
@@ -15,7 +15,7 @@ function bot(name) {
       if (src.substring(src.length - 12, src.length) !== ".botnotation" && src.substring(src.length - 3, src.length) !== ".bn") {
       throw new Error("Bot Source must be a botnotation file.");
     } else {
-    sendAJAXRequest(src, function (request) {
+    sendAJAXRequest(src, function (request,this) {
       if (JSON.parse) {
         this.BN = JSON.parse(request.responseText);
       } else {
@@ -43,7 +43,7 @@ function bot(name) {
             }
         }
       })();
-  });
+  },this);
 }
 }
 /*
@@ -109,11 +109,11 @@ function RequestObject() {
 * @param callback a function that would be executed once the request was made.
 * @return void
 */
-function sendAJAXRequest(URL, callback) {
+function sendAJAXRequest(URL, callback, refrence) {
   var xhttp = RequestObject();
   xhttp.onreadystatechange = function() {
     if (xhttp.readyState == 4 && xhttp.status == 200) {
-      callback(xhttp);
+      callback(xhttp,refrence);
     }
   };
   xhttp.open("GET", URL, true);
