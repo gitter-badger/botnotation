@@ -1,6 +1,6 @@
 {
   "name": "botnotation",
-  "description": "A JS Framework for creating bots",
+  "description": "A JS framework for bot creation.",
   "main": "./src/botnotation.js",
   "authors": [
     "Shani Shlapobersky"
