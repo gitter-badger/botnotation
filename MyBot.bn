@@ -3,9 +3,7 @@
       "author":"Shani Shlapobersky",
       "version":1.0,
       "settings": {
-          "case-sensitive":false,
-          "space-sensitive":false,
-          "sign-sensitive":false
+          "case-sensitive":"no"
       },
       "responses": [
           {"input":"Hello", "response":"Hi @{name}!"},
