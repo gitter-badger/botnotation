@@ -1,0 +1,26 @@
+{
+  "name": "botnotation",
+  "version": "1.0.0",
+  "description": "A JS Framework for creating bots",
+  "main": "./src/botnotation.js",
+  "directories": {
+    "example": "examples"
+  },
+  "scripts": {
+    "test": "echo Infinity"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kepempem/botnotation.git"
+  },
+  "keywords": [
+    "bots",
+    "bot"
+  ],
+  "author": "Shani Shlapobersky",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kepempem/botnotation/issues"
+  },
+  "homepage": "https://github.com/kepempem/botnotation#readme"
+}

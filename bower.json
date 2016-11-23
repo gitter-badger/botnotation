@@ -1,0 +1,14 @@
+{
+  "name": "botnotation",
+  "description": "A JS Framework for creating bots",
+  "main": "./src/botnotation.js",
+  "authors": [
+    "Shani Shlapobersky"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "bots",
+    "bot"
+  ],
+  "homepage": "https://github.com/kepempem/botnotation"
+}
