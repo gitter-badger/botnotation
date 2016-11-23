@@ -1,7 +1,7 @@
 /* - botnotation JS Library - v1 - Beta - By Shani Shlapobersky - Licensed under the MIT license - */
 var botnotation = {
   about: {
-    version: '1.0.3'
+    version: '1.0.4'
   }
 };
 console.log(botnotation.about.version);
@@ -23,10 +23,10 @@ function bot(name) {
       }
       _this.ready = true;
       _this.details = "Bot " + _this.BN['title'] + " is built";
-      if (this.BN['version']) {
+      if (_this.BN['version']) {
         _this.details += " and running version " + _this.BN['version'].toString();
       }
-      if (this.BN['author']) {
+      if (_this.BN['author']) {
         _this.details += ".\nThis Bot was made by " + _this.BN['author'];
       }
       _this.details += ".";
