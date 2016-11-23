@@ -1,6 +1,6 @@
 {
   "name": "botnotation",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A JS Framework for creating bots",
   "main": "./src/botnotation.js",
   "directories": {

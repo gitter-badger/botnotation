@@ -1,7 +1,7 @@
 /* - botnotation JS Library - v1 - Beta - By Shani Shlapobersky - Licensed under the MIT license - */
 var botnotation = {
   about: {
-    version: '1.0.4'
+    version: '1.0.5'
   }
 };
 console.log(botnotation.about.version);
@@ -55,27 +55,15 @@ this.send = function(input) {
     if (index === this.BN['responses'].length) {
       return this.default;
       break;
-    } else if (this.BN['settings']['evaluate-inner-expressions'].toString() === "true") {
-      if (this.BN['settings']['case-sensitive'].toString() === "true") {
-        if (this.BN['responses'][index]['input'] === input) {
-          return botnotation.eval(this.BN['responses'][index]['response']);
-          break;
-        }
-      } else {
-        if (this.BN['responses'][index]['input'].toUpperCase() === input.toUpperCase()) {
-          return botnotation.eval(this.BN['responses'][index]['response']);
-          break;
-        }
-      }
     } else {
-      if (this.BN['settings']['case-sensitive'].toString() === "true") {
-        if (this.BN['responses'][index]['input'] === input) {
-          return this.BN['responses'][index]['response'];
+      if (this.BN.hasOwnProperty('settings')&&this.BN.settings.hasOwnProperty('case-sensitive')&&this.BN.settings['case-sensitive'].toString().toLowerCase() === "yes") {
+        if (this.BN.responses[index].input === input) {
+          return botnotation.eval(this.BN.responses[index].response);
           break;
         }
       } else {
-        if (this.BN['responses'][index]['input'].toUpperCase() === input.toUpperCase()) {
-          return this.BN['responses'][index]['response'];
+        if (this.BN.responses[index].input.toUpperCase() === input.toUpperCase()) {
+          return botnotation.eval(this.BN.responses[index].response);
           break;
         }
       }
