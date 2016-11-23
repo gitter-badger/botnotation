@@ -1,7 +1,7 @@
 /* - botnotation JS Library - v1 - Beta - By Shani Shlapobersky - Licensed under the MIT license - */
 var botnotation = {
   about: {
-    version: '1.0.2'
+    version: '1.0.3'
   }
 };
 console.log(botnotation.about.version);
@@ -15,34 +15,34 @@ function bot(name) {
       if (src.substring(src.length - 12, src.length) !== ".botnotation" && src.substring(src.length - 3, src.length) !== ".bn") {
       throw new Error("Bot Source must be a botnotation file.");
     } else {
-    sendAJAXRequest(src, function (request,this) {
+    sendAJAXRequest(src, function (request,_this) {
       if (JSON.parse) {
-        this.BN = JSON.parse(request.responseText);
+        _this.BN = JSON.parse(request.responseText);
       } else {
-        this.BN = eval ("(" + request.responseText + ")");
+        _this.BN = eval ("(" + request.responseText + ")");
       }
-      this.ready = true;
-      this.details = "Bot " + this.BN['title'] + " is built";
+      _this.ready = true;
+      _this.details = "Bot " + _this.BN['title'] + " is built";
       if (this.BN['version']) {
-        this.details += " and running version " + this.BN['version'].toString();
+        _this.details += " and running version " + _this.BN['version'].toString();
       }
       if (this.BN['author']) {
-        this.details += ".\nThis Bot was made by " + this.BN['author'];
+        _this.details += ".\nThis Bot was made by " + _this.BN['author'];
       }
-      this.details += ".";
-      console.log(this.details);
-      this.default = (function () {
-        for(var index = 0; index < this.BN['responses'].length; index++) {
-            if (this.BN['responses'][index]['default']) {
-              return botnotation.eval(this.BN['responses'][index]['default']);
+      _this.details += ".";
+      console.log(_this.details);
+      _this.default = (function (_this) {
+        for(var index = 0; index < _this.BN['responses'].length; index++) {
+            if (_this.BN['responses'][index]['default']) {
+              return botnotation.eval(_this.BN['responses'][index]['default']);
               break;
             }
-            if (this.BN['responses'][index]['default']) {
-              return this.BN['responses'][index]['default'];
+            if (_this.BN['responses'][index]['default']) {
+              return _this.BN['responses'][index]['default'];
               break;
             }
         }
-      })();
+      })(_this);
   },this);
 }
 }
