@@ -2,9 +2,7 @@
       "title":"My Bot",
       "author":"Shani Shlapobersky",
       "version":1.0,
-      "settings": {
-          "case-sensitive":"no"
-      },
+      "settings": {},
       "responses": [
           {"input":"Hello", "response":"Hi @{name}!"},
           {"input":"foo", "response":"bar"},
