@@ -11,7 +11,7 @@ var botnotation = {
   },
   bots: [],
   about: {
-    version: '1.2.4'
+    version: '1.2.5'
   },
   sendAJAXRequest: function (URL, callback, refrence) {
     var CrossBrowserAjaxObjects = [
@@ -81,10 +81,22 @@ function bot(name) {
             console.log(details);
             _this.default = (function (_this) {
               var _R='';
+              var _E = false;
               if (_this.BN.hasOwnProperty('default')){
-                _R = (_this.BN.default);
+                if (typeof _this.BN.default==='object'&&Array.isArray(_this.BN.default)&&_this.BN.default>0){
+                  _R = (_this.BN.default)[0];
+                  if (_this.BN.default.length>1) {
+                    _E = Boolean((_this.BN.default)[1]);
+                  }
+                } else {
+                  _R = (_this.BN.default);
+                }
               }
-              return new Function('q','return ("'+_R+'").replace(/@{~}/g,q);');
+              if (!_E){
+                return new Function('q','return eval("'+_R+'".replace(/@{~}/g,q));');
+              }else {
+                return new Function('q','return ("'+_R+'").replace(/@{~}/g,q);');
+              }
             })(_this);
           }else {
             throw new Error('The responses property is required');

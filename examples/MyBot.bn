@@ -10,5 +10,5 @@
           {"input":"I want a number", "response":"42", "evaluate":true},
           {"input":"I want an array", "response":"@{[]}", "evaluate":true}
       ],
-      "default":"I don't know what @{~} means."
+      "default":["I don't know what @{~} means.",false]
 }
