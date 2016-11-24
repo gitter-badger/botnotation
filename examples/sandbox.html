@@ -12,18 +12,25 @@
     <div id="convo"></div>
     <input id="input" placeholder="send query">&nbsp;<button id="send">Send</button>
     <script>
+    function send(){
+      var _input = document.createElement('label');
+      _input.innerHTML+='<b>Human:</b> '+document.getElementById('input').value;
+      _input.style.display='block';
+      document.getElementById('convo').appendChild(_input);
+      var _output = document.createElement('label');
+      _output.innerHTML+='<b>Bot: </b>'+MyBot.send(document.getElementById('input').value);
+      _output.style.display='block';
+      document.getElementById('convo').appendChild(_output);
+      this.value='';
+    }
     var check = setInterval(function(){
       if(MyBot.ready){
         document.getElementById('status').innerHTML='Bot is ready running version '+botnotation.about.version+' of botnotation';
-        document.getElementById('send').addEventListener('click',function(){
-          var _input = document.createElement('label');
-          _input.innerHTML+='<b>Human:</b> '+document.getElementById('input').value;
-          _input.style.display='block';
-          document.getElementById('convo').appendChild(_input);
-          var _output = document.createElement('label');
-          _output.innerHTML+='<b>Bot: </b>'+MyBot.send(document.getElementById('input').value);
-          _output.style.display='block';
-          document.getElementById('convo').appendChild(_output);
+        document.getElementById('send').addEventListener('click',send);
+        window.addEventListener('keydown',function(e){
+          if (e.keyCode===13){
+            send();
+          }
         });
         clearInterval(check);
       }
