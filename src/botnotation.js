@@ -11,7 +11,7 @@ var botnotation = {
   },
   bots: [],
   about: {
-    version: '1.2.6'
+    version: '1.2.7'
   },
   sendAJAXRequest: function (URL, callback, refrence) {
     var CrossBrowserAjaxObjects = [
@@ -93,9 +93,9 @@ function bot(name) {
                 }
               }
               if (!_E){
-                return new Function('q','return eval("'+_R+'".replace(/@{~}/g,q));');
+                return new Function('q','return eval('+JSON.stringify(_R)+'.replace(/@{~}/g,q));');
               }else {
-                return new Function('q','return ("'+_R+'").replace(/@{~}/g,q);');
+                return new Function('q','return ('+JSON.stringify(_R)+').replace(/@{~}/g,q);');
               }
             })(_this);
           }else {
