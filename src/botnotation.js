@@ -11,7 +11,7 @@ var botnotation = {
   },
   bots: [],
   about: {
-    version: '1.2.5'
+    version: '1.2.6'
   },
   sendAJAXRequest: function (URL, callback, refrence) {
     var CrossBrowserAjaxObjects = [
@@ -83,7 +83,7 @@ function bot(name) {
               var _R='';
               var _E = false;
               if (_this.BN.hasOwnProperty('default')){
-                if (typeof _this.BN.default==='object'&&Array.isArray(_this.BN.default)&&_this.BN.default>0){
+                if (typeof _this.BN.default==='object'&&Array.isArray(_this.BN.default)&&_this.BN.default.length>0){
                   _R = (_this.BN.default)[0];
                   if (_this.BN.default.length>1) {
                     _E = Boolean((_this.BN.default)[1]);
