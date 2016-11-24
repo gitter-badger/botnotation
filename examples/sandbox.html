@@ -23,6 +23,7 @@
           var _output = document.createElement('label');
           _output.innerHTML+='<b>Bot: </b>'+MyBot.send(document.getElementById('input').value);
           _output.style.display='block';
+          document.getElementById('convo').appendChild(_output);
         });
         clearInterval(check);
       }

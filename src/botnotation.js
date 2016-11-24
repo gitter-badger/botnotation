@@ -4,8 +4,8 @@ var botnotation = {
   * @param string a string to be analysed.
   * @return the input with all @{x} strings replaced with variable x of the window scope.
   */
-  eval: function(string) {
-      return string.replace(new RegExp('@{(.+?)}', 'g'), function () {
+  eval: function(str) {
+      return str.replace(new RegExp('@{(.+?)}', 'g'), function () {
         return eval(arguments[1]);
       });
   },
@@ -81,11 +81,8 @@ function bot(name) {
             console.log(details);
             _this.default = (function (_this) {
               var _R='';
-              for(var index = 0; index < _this.BN['responses'].length; index++) {
-                  if (_this.BN.responses[index].hasOwnProperty('default')) {
-                    _R = botnotation.eval(_this.BN['responses'][index]['default']);
-                    break;
-                  }
+              if (_this.BN.hasOwnProperty('default')){
+                _R = botnotation.eval(_this.BN.default);
               }
               return new Function('q','return ("'+_R+'").replace(/@{~}/g,q);');
             })(_this);
