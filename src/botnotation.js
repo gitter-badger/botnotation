@@ -11,7 +11,7 @@ var botnotation = {
   },
   bots: [],
   about: {
-    version: '1.2.0'
+    version: '1.2.1'
   },
   sendAJAXRequest: function (URL, callback, refrence) {
     var CrossBrowserAjaxObjects = [
