@@ -14,7 +14,7 @@
     <script>
     var check = setInterval(function(){
       if(MyBot.ready){
-        document.getElementById('status').innerHTML='Bot is ready';
+        document.getElementById('status').innerHTML='Bot is ready running version '+botnotation.about.version+' of botnotation';
         document.getElementById('send').addEventListener('click',function(){
           var _input = document.createElement('label');
           _input.innerHTML+='<b>Human:</b> '+document.getElementById('input').value;
