@@ -11,7 +11,7 @@ var botnotation = {
   },
   bots: [],
   about: {
-    version: '1.2.2'
+    version: '1.2.3'
   },
   sendAJAXRequest: function (URL, callback, refrence) {
     var CrossBrowserAjaxObjects = [
@@ -84,7 +84,7 @@ function bot(name) {
               if (_this.BN.hasOwnProperty('default')){
                 _R = botnotation.eval(_this.BN.default);
               }
-              return new Function('q','return ("'+_R+'").replace(/@{~}/g,q);');
+              return new Function('q','return ("'+_R+'").replace(/@[~]/g,q);');
             })(_this);
           }else {
             throw new Error('The responses property is required');
