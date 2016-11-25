@@ -18,3 +18,13 @@ strawberry:
 //JS:
 strawberry.install('kepempem/botnotation');
 ```
+## Bot making
+Bots used by botnotation are written in botnotation files (.botnotation or .bn file extensions). botnotation files are just like JSON. [Example botnotation](./examples/MyBot.botnotation).
+### Basic information
+#### name
+The name of the bot:
+```
+{
+  "name": "My Bot"
+}
+```

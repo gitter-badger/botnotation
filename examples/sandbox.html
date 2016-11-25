@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <script src="../src/botnotation.js"></script>
+    <script src="../lib/botnotation.js"></script>
     <script>
       var MyBot = bot("MyBot");
-      MyBot.loadSource("./MyBot.bn");
+      MyBot.loadSource("./MyBot.botnotation");
     </script>
   </head>
   <body>
@@ -21,7 +21,7 @@
       _output.innerHTML+='<b>Bot: </b>'+MyBot.send(document.getElementById('input').value);
       _output.style.display='block';
       document.getElementById('convo').appendChild(_output);
-      this.value='';
+      document.getElementById('input').value='';
     }
     var check = setInterval(function(){
       if(MyBot.ready){
