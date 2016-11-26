@@ -2,7 +2,9 @@
       "name":"My Bot",
       "author":"Shani Shlapobersky",
       "version":1.0,
-      "settings": {},
+      "settings": {
+        "evaluate_all": false
+      },
       "responses": [
           {"input":"Hello", "response":"Hi @{prompt('What is your name?')}!"},
           {"input":"foo", "response":"bar"},
