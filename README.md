@@ -22,10 +22,12 @@ botnotation - A JS framework for bot creation.
 npm:
 ```
 npm install botnotation
+// Then require: require('botnotation');
 ```
 bower:
 ```
 bower install botnotation
+// Then require: <script src="bower_components/botnotation/lib/botnotation.js"></script>
 ```
 strawberry:
 ```
