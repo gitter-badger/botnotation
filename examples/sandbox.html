@@ -3,7 +3,11 @@
   <head>
     <script src="../lib/botnotation.js"></script>
     <script>
-      var MyBot = bot("MyBot");
+      var MyBot = bot({
+        callback: function(){
+          alert('Bot is ready!');
+        }
+      });
       MyBot.load("./MyBot.botnotation");
     </script>
   </head>
