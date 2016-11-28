@@ -10,6 +10,8 @@ botnotation - A JS framework for bot creation.
       + [External File](#external-file)
       + [JS Object](#js-object)
     + [Callback](#callback)
+    + [Sending Query](#sending-query)
+    + [filter function](#filter-function)
   + [Bot Making](#bot-making)
     + [Basic information](#basic-information)
       + [name](#name)
@@ -33,7 +35,7 @@ bower:
 bower install botnotation
 // Then require: <script src="bower_components/botnotation/lib/botnotation.js"></script>
 ```
-strawberry:
+strawberry:strawberry::
 ```
 //HTML:
 <strawberry src="kepempem/strawberry"></strawberry>
@@ -44,7 +46,7 @@ strawberry.install('kepempem/botnotation');
 ### Construct
 To create a new bot, add this code to your JS file:
 ```
-var name_of_bot = new bot(options);
+var name_of_bot = new bot({});
 ```
 the ```options``` parameter is an object and is not required.
 ### Bot source
@@ -102,6 +104,28 @@ var name_of_bot = bot({
     }
   });
 ```
+### sending query
+In order to send query to your bot use the ```send``` function like this:
+```
+name_of_bot.send(query);
+```
+The returned value is the bots response.
+### filter function
+By default, botnotation is case insensitive which means if the query ```Hello``` is sent to a bot the response will be the same as if the query is ```hELLo```. Each time a query is sent botnotation goes through all the bot's input templates and checks if the query matches the current input template it's checking. The way it is checking for a match is with the ```bot.filter``` function. The default function is:
+```
+function(input,bot_input){
+  return (input.toUpperCase()===bot_input.toUpperCase());
+}
+```
+Which means the ```send``` function will return the response which will be identical to the input regardless of case. To override this function, set a ```filter``` property for the ```options``` object. For example, if you want the matching to be case insensitive and space insensitive do it like that:
+```
+var name_of_bot = bot({
+    filter:function(input,bot_input){
+      return (input.toUpperCase().replace(' ','')===bot_input.toUpperCase().replace(' ',''));
+    }
+  });
+```
+Then, sending the query ```A b c``` will be the same as sending ``` AB c```.
 ## Bot making
 Bots used by botnotation are written in botnotation files (.botnotation or .bn file extensions). botnotation files are just like JSON. [Example botnotation](./examples/MyBot.botnotation).
 ### Basic information
@@ -184,7 +208,8 @@ If you want to return an evaluated default response you can do it like that:
 This will return the integer 42.
 
 ## TODO List
-- [ ] RegExp support
+- [ ] ```RegExp``` support
+
 
 
 Copyright (c) 2016 Shani Shlapobersky. Licensed under the MIT license. [License](./LICENSE.md)
