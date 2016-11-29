@@ -5,7 +5,13 @@
     <script>
       var MyBot = bot({
         callback: function(){
-          alert('Bot is ready!');
+          document.getElementById('status').innerHTML='Bot is ready running version '+botnotation.about.version+' of botnotation';
+          document.getElementById('send').addEventListener('click',send);
+          window.addEventListener('keydown',function(e){
+            if (e.keyCode===13){
+              send();
+            }
+          });
         }
       });
       MyBot.load("./MyBot.botnotation");
@@ -27,18 +33,6 @@
       document.getElementById('convo').appendChild(_output);
       document.getElementById('input').value='';
     }
-    var check = setInterval(function(){
-      if(MyBot.ready){
-        document.getElementById('status').innerHTML='Bot is ready running version '+botnotation.about.version+' of botnotation';
-        document.getElementById('send').addEventListener('click',send);
-        window.addEventListener('keydown',function(e){
-          if (e.keyCode===13){
-            send();
-          }
-        });
-        clearInterval(check);
-      }
-    },10);
     </script>
   </body>
 </html>
