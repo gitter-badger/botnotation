@@ -12,7 +12,7 @@
           {"input":"I want a function", "response":"my_function", "evaluate":true},
           {"input":"I want a number", "response":"42", "evaluate":true},
           {"input":"I want an array", "response":"[]", "evaluate":true},
-          {"input":"print (.*)", "response":"@{var split_print = @{'~'}.split('print');split_print[0]='';console.log(split_print.join(' '));}"}
+          {"input":"print (.*)", "response":"@{var split_print = @{'~'}.split(/print/i);split_print[0]='';console.log(split_print.join(' '));}"}
       ],
       "default":["I don't know what @{~} means.",false]
 }
