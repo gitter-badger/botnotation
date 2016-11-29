@@ -25,17 +25,17 @@ botnotation - A JS framework for bot creation.
   + [TODO List](#todo-list)
 
 ## Installation
-npm:
+:package: npm:
 ```
 npm install botnotation
 // Then require: require('botnotation');
 ```
-bower:
+:bird: bower:
 ```
 bower install botnotation
 // Then require: <script src="bower_components/botnotation/lib/botnotation.js"></script>
 ```
-strawberry:strawberry::
+:strawberry: strawberry:
 ```
 //HTML:
 <strawberry src="kepempem/strawberry"></strawberry>
@@ -90,17 +90,11 @@ name_of_bot.load({
 });
 ```
 ### callback
-Since the ```load``` function is using AJAX if the botnotation is stored in an external file it won't load the source immediately. To detect when the bot is ready add a ```callback``` property to your bot like that:
-```
-name_of_bot.callback=function(){
-  alert('Bot is ready');
-};
-```
-Or, when constructing:
+Since the ```load``` function is using AJAX if the botnotation is stored in an external file it won't load the source immediately. To detect when the bot is ready add a ```callback``` property to your bot like that when constructing:
 ```
 var name_of_bot = bot({
     callback: function(){
-      //Do Stuff
+      alert('Bot is ready');
     }
   });
 ```
@@ -162,7 +156,8 @@ The bot's settings:
   "author": "John Smith",
   "version": 1.0,
   "settings": {
-    "evaluate_all": false // When true, all of the bot's responses will be evaluated
+    "evaluate_all": false, // When true, all of the bot's responses will be evaluated
+    "regular_expressions": true //When true, every time a query is sent to a bot instead of checking whether the input is identical to the current input it's checking it'll check whether it matches the current input as a regular expression.
   }
 }
 ```
@@ -174,7 +169,8 @@ The bot's responses, An array of objects. Each object should have an ```input```
   "author": "John Smith",
   "version": 1.0,
   "settings": {
-      "evaluate_all": false
+      "evaluate_all": false,
+      "regular_expressions": true
     },
   "responses": [
     {"input": "Hello", "response": "Hi @{prompt('What is your name?')}!"},
@@ -208,7 +204,7 @@ If you want to return an evaluated default response you can do it like that:
 This will return the integer 42.
 
 ## TODO List
-- [ ] ```RegExp``` support
+- [x] ```RegExp``` support
 
 
 
