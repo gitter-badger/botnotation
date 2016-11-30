@@ -1,4 +1,6 @@
 # botnotation
+
+[![Join the chat at https://gitter.im/botnotation/Lobby](https://badges.gitter.im/botnotation/Lobby.svg)](https://gitter.im/botnotation/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 <img src="https://img.shields.io/npm/v/botnotation.svg?maxAge=2592000" alt="npm version"> <img src="https://img.shields.io/github/license/kepempem/botnotation.svg" alt="License"> <img src="https://img.shields.io/npm/dt/botnotation.svg" alt="npm downloads"> <img src="https://img.shields.io/npm/dm/botnotation.svg" alt="Downloads per month"> <img src="https://kepempem.com/awesome.svg" alt="awesome">
 
 botnotation - A JS framework for bot creation.
